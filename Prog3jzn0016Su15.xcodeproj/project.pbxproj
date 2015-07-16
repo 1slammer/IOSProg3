@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CB5D070A1B52EFBA00783F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D07091B52EFBA00783F94 /* AppDelegate.swift */; };
-		CB5D070C1B52EFBA00783F94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D070B1B52EFBA00783F94 /* ViewController.swift */; };
 		CB5D070F1B52EFBA00783F94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D070D1B52EFBA00783F94 /* Main.storyboard */; };
 		CB5D07111B52EFBA00783F94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5D07101B52EFBA00783F94 /* Images.xcassets */; };
 		CB5D07141B52EFBA00783F94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5D07121B52EFBA00783F94 /* LaunchScreen.xib */; };
 		CB5D07201B52EFBB00783F94 /* Prog3jzn0016Su15Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D071F1B52EFBB00783F94 /* Prog3jzn0016Su15Tests.swift */; };
+		CB5D072A1B52F08D00783F94 /* AlbumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D07291B52F08D00783F94 /* AlbumList.swift */; };
+		CB5D072C1B52F6BE00783F94 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D072B1B52F6BE00783F94 /* RootViewController.swift */; };
+		CB5D07321B53488500783F94 /* AlbumEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D07311B53488500783F94 /* AlbumEntryViewController.swift */; };
+		CB5D07341B534E7300783F94 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D07331B534E7300783F94 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +32,16 @@
 		CB5D07041B52EFBA00783F94 /* Prog3jzn0016Su15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prog3jzn0016Su15.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5D07081B52EFBA00783F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB5D07091B52EFBA00783F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB5D070B1B52EFBA00783F94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB5D070E1B52EFBA00783F94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB5D07101B52EFBA00783F94 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB5D07131B52EFBA00783F94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CB5D07191B52EFBB00783F94 /* Prog3jzn0016Su15Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Prog3jzn0016Su15Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5D071E1B52EFBB00783F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB5D071F1B52EFBB00783F94 /* Prog3jzn0016Su15Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prog3jzn0016Su15Tests.swift; sourceTree = "<group>"; };
+		CB5D07291B52F08D00783F94 /* AlbumList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumList.swift; path = ../AlbumList.swift; sourceTree = "<group>"; };
+		CB5D072B1B52F6BE00783F94 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		CB5D07311B53488500783F94 /* AlbumEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumEntryViewController.swift; sourceTree = "<group>"; };
+		CB5D07331B534E7300783F94 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				CB5D07091B52EFBA00783F94 /* AppDelegate.swift */,
-				CB5D070B1B52EFBA00783F94 /* ViewController.swift */,
+				CB5D072B1B52F6BE00783F94 /* RootViewController.swift */,
+				CB5D07291B52F08D00783F94 /* AlbumList.swift */,
+				CB5D07331B534E7300783F94 /* Album.swift */,
+				CB5D07311B53488500783F94 /* AlbumEntryViewController.swift */,
 				CB5D070D1B52EFBA00783F94 /* Main.storyboard */,
 				CB5D07101B52EFBA00783F94 /* Images.xcassets */,
 				CB5D07121B52EFBA00783F94 /* LaunchScreen.xib */,
@@ -212,8 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB5D070C1B52EFBA00783F94 /* ViewController.swift in Sources */,
+				CB5D072A1B52F08D00783F94 /* AlbumList.swift in Sources */,
 				CB5D070A1B52EFBA00783F94 /* AppDelegate.swift in Sources */,
+				CB5D072C1B52F6BE00783F94 /* RootViewController.swift in Sources */,
+				CB5D07321B53488500783F94 /* AlbumEntryViewController.swift in Sources */,
+				CB5D07341B534E7300783F94 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
