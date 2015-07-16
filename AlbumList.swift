@@ -26,8 +26,8 @@ class AlbumList {
         let defaults = NSUserDefaults.standardUserDefaults()
         let storedAlbums = defaults.objectForKey("albums") as? [String]
         func convertArraytoAlbums(arrayIn:[String]) -> [Album]! {
-            var array:[Album]!
-            for var a = 0; a < arrayIn.count; a++ {
+            var array = [Album]()
+            for var a = 0; a < (arrayIn.count / 4); a++ {
                 var name = arrayIn[a]
                 var artist = arrayIn[a+1]
                 var label = arrayIn[a+2]
@@ -41,7 +41,7 @@ class AlbumList {
             
         }
 
-        let myAlbums = convertArraytoAlbums(storedAlbums!)
+        let myAlbums = storedAlbums != nil ? convertArraytoAlbums(storedAlbums!) : []
         albums = myAlbums != nil ? myAlbums : []
 
     }
@@ -90,21 +90,21 @@ class AlbumList {
         }
         return array
     }
-//    private func convertArraytoAlbums(arrayIn:[String]) -> [Album]! {
-//        var array:[Album]!
-//        for var a = 0; a < arrayIn.count; a++ {
-//            var name = arrayIn[a]
-//            var artist = arrayIn[a+1]
-//            var label = arrayIn[a+2]
-//            var year = arrayIn[a+3]
-//            var locAlbum = Album(nameIn: name, yearIn: year, artistIn: artist, labelIn: label)
-//            array.append(locAlbum)
-//            
-//        }
-//        return array
-//
-//        
-//    }
+    private func convertArraytoAlbums(arrayIn:[String]) -> [Album]! {
+        var array:[Album]!
+        for var a = 0; a < arrayIn.count; a++ {
+            var name = arrayIn[a]
+            var artist = arrayIn[a+1]
+            var label = arrayIn[a+2]
+            var year = arrayIn[a+3]
+            var locAlbum = Album(nameIn: name, yearIn: year, artistIn: artist, labelIn: label)
+            array.append(locAlbum)
+            
+        }
+        return array
+
+        
+    }
     
     
 }
