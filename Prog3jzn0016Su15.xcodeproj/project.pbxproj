@@ -17,7 +17,6 @@
 		CB5D07321B53488500783F94 /* AlbumEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D07311B53488500783F94 /* AlbumEntryViewController.swift */; };
 		CB5D07341B534E7300783F94 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D07331B534E7300783F94 /* Album.swift */; };
 		CBF995101B5B1704008DB6B7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9950F1B5B1704008DB6B7 /* libsqlite3.dylib */; };
-		CBF995161B5B25D0008DB6B7 /* Temp.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF995151B5B25D0008DB6B7 /* Temp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +45,6 @@
 		CB5D07331B534E7300783F94 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		CBF9950F1B5B1704008DB6B7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CBF995131B5B25CF008DB6B7 /* Prog3jzn0016Su15-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prog3jzn0016Su15-Bridging-Header.h"; sourceTree = "<group>"; };
-		CBF995141B5B25D0008DB6B7 /* Temp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Temp.h; sourceTree = "<group>"; };
-		CBF995151B5B25D0008DB6B7 /* Temp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Temp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +69,6 @@
 		CB5D06FB1B52EFBA00783F94 = {
 			isa = PBXGroup;
 			children = (
-				CBF995141B5B25D0008DB6B7 /* Temp.h */,
-				CBF995151B5B25D0008DB6B7 /* Temp.m */,
 				CBF9950F1B5B1704008DB6B7 /* libsqlite3.dylib */,
 				CB5D07061B52EFBA00783F94 /* Prog3jzn0016Su15 */,
 				CB5D071C1B52EFBB00783F94 /* Prog3jzn0016Su15Tests */,
@@ -233,7 +228,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5D072A1B52F08D00783F94 /* AlbumList.swift in Sources */,
-				CBF995161B5B25D0008DB6B7 /* Temp.m in Sources */,
 				CB5D070A1B52EFBA00783F94 /* AppDelegate.swift in Sources */,
 				CB5D072C1B52F6BE00783F94 /* RootViewController.swift in Sources */,
 				CB5D07321B53488500783F94 /* AlbumEntryViewController.swift in Sources */,
