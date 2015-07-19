@@ -8,7 +8,7 @@
         <!--Root View Controller-->
         <scene sceneID="WtX-Mb-GuE">
             <objects>
-                <tableViewController id="Mle-Wl-t6M" customClass="RootViewController" customModule="Prog3jzn0016Su15" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RootView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mle-Wl-t6M" customClass="RootViewController" customModule="Prog3jzn0016Su15" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gFx-gt-FN5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="I8z-mq-udY" kind="show" id="umE-C2-aoR"/>
+                                    <segue destination="I8z-mq-udY" kind="show" id="4Rt-MP-yP3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -49,11 +49,15 @@
                                 <action selector="addNewAlbumAction:" destination="Mle-Wl-t6M" id="sWJ-bm-rct"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Fhb-BQ-Ra3"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="gFx-gt-FN5" id="4zA-pW-vwt"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0T-g9-jur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2104" y="173"/>
+            <point key="canvasLocation" x="2376" y="124"/>
         </scene>
         <!--Title-->
         <scene sceneID="iGQ-En-uHL">
@@ -89,7 +93,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gc-Ir-b9y">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gc-Ir-b9y">
                                 <rect key="frame" x="98" y="118" width="475" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -97,7 +101,7 @@
                                     <action selector="titleAction:" destination="I8z-mq-udY" eventType="editingDidEnd" id="L6y-hY-CSx"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djp-hf-NvA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djp-hf-NvA">
                                 <rect key="frame" x="98" y="173" width="475" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -105,7 +109,7 @@
                                     <action selector="artistAction:" destination="I8z-mq-udY" eventType="editingDidEnd" id="sFq-dB-vQv"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0td-8b-XnA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0td-8b-XnA">
                                 <rect key="frame" x="98" y="227" width="475" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -113,7 +117,7 @@
                                     <action selector="labelAction:" destination="I8z-mq-udY" eventType="editingDidEnd" id="W1e-WU-C6D"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uet-4J-bRi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uet-4J-bRi">
                                 <rect key="frame" x="98" y="281" width="475" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -171,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8YV-yW-Vwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141" y="185"/>
+            <point key="canvasLocation" x="3331" y="851"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="048-ff-lXy">

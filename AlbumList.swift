@@ -16,11 +16,7 @@ class AlbumList {
         }
         return Singleton.instance;
     }
-    var count = 0
     private(set) var albums:[Album]
-//    private(set) var artists:[String]
-//    private(set) var labels:[String]
-//    private(set) var years:[String]
     
     init() {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -37,7 +33,7 @@ class AlbumList {
                 
             }
             return array
-            
+        
             
         }
 
@@ -49,18 +45,13 @@ class AlbumList {
     func addAlbum(albumIn: Album) {
         if (!contains(albums, albumIn)) {
             albums.append(albumIn)
-            count++
                 savealbums()
         }
     }
 
-    func removeAlbum(albumName: String) {
-        for var c = 0; c < albums.count; c++ {
-            if albums[c].name == albumName {
-                albums.removeAtIndex(c)
-                count--
-            }
-        }
+    func removeAlbum(index: Int) {
+                albums.removeAtIndex(index)
+        
             savealbums()
     }
     
@@ -76,6 +67,9 @@ class AlbumList {
         let array = convertAlbumstoArray()
         defaults.setObject(array, forKey: "albums")
         defaults.synchronize()
+    }
+    func saveData() {
+        savealbums()
     }
     
     private func convertAlbumstoArray() -> [String]{

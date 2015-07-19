@@ -8,37 +8,33 @@
 
 import UIKit
 
-class RootViewController: UITableViewController {
+class RootViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     private var cellPointSize: CGFloat!
     private var albumsList: AlbumList!
-    private var albums:[Album]!
     private let albumCell = "Album"
     
+    @IBOutlet var myTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let preferredTableViewFont = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         cellPointSize = preferredTableViewFont.pointSize
         albumsList = AlbumList.sharedAlbumList
-        albums = albumsList.albums
-       
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+        navigationItem.rightBarButtonItem = editButtonItem()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        albumsList.saveData()
         tableView.reloadData()
     }
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return albumsList.albums.isEmpty ? 1 : 2
-    }
-    
+        
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return section == 0 ? albums.count : 1
+        return albumsList.albums.count
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -46,56 +42,53 @@ class RootViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            // The font names list
-            let cell = tableView.dequeueReusableCellWithIdentifier(albumCell, forIndexPath: indexPath) as! UITableViewCell
+        
+            let cell = myTableView.dequeueReusableCellWithIdentifier(albumCell, forIndexPath: indexPath) as! UITableViewCell
             //cell.textLabel?.font = fontForDisplay(atIndexPath: indexPath)
-            cell.textLabel?.text = albums[indexPath.row].name
-            cell.detailTextLabel?.text = albums[indexPath.row].artist
+            cell.textLabel?.text = albumsList.albums[indexPath.row].name
+        cell.detailTextLabel?.text = albumsList.albums[indexPath.row].artist
             return cell
-        } else {
-            // The favorites list
-            return tableView.dequeueReusableCellWithIdentifier(albumCell, forIndexPath: indexPath) as! UITableViewCell
-        }
-    }
+           }
     
     @IBAction func addNewAlbumAction(sender: UIBarButtonItem) {
         var newAlbum = Album(nameIn: "New Title", yearIn: "New Year", artistIn: "New Artist", labelIn: "New Label")
         albumsList.addAlbum(newAlbum)
+        
+        self.myTableView.reloadData()
+    
     }
     
-    func saveData(albumObject: Album) {
-        var archiveArray = NSMutableArray(capacity: albums.count)
-        for a in albums {
-            var albumEncodedObject = NSKeyedArchiver.archivedDataWithRootObject(a)
-            archiveArray.addObject(albumEncodedObject)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+        let albumListVC = segue.destinationViewController as! AlbumEntryViewController
+        
+        albumListVC.yearString = albumsList.albums[indexPath.row].year
+        albumListVC.titleString = albumsList.albums[indexPath.row].name
+        albumListVC.artistString = albumsList.albums[indexPath.row].artist
+        albumListVC.labelString = albumsList.albums[indexPath.row].label
+        albumListVC.indexPath = indexPath.row
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            albumsList.removeAlbum(indexPath.row)
+            myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            
         }
-    
-        var userData = NSUserDefaults()
-        userData.setObject(archiveArray, forKey: "albums")
-        userData.synchronize()
+        
     }
-    // MARK: Navigation
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using [segue destinationViewController].
-//        // Pass the selected object to the new view controller.
-//        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
-//        let listVC = segue.destinationViewController as! FontListViewController
-//        
-//        if indexPath.section == 0 {
-//            // Font names list
-//            let familyName = familyNames[indexPath.row]
-//            listVC.fontNames = sorted(UIFont.fontNamesForFamilyName(familyName) as! [String])
-//            listVC.navigationItem.title = familyName
-//            listVC.showsFavorites = false
-//        } else {
-//            // Favorites list
-//            listVC.fontNames = favoritesList.favorites
-//            listVC.navigationItem.title = "Favorites"
-//            listVC.showsFavorites = true
-//        }
-//    }
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        albumsList.moveItem(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
+    }
+    
 
     
 }
